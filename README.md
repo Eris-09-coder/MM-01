@@ -1,36 +1,27 @@
-# 🗺️ Auto-Generator Minit Mesyuarat & Minit Curai (Format PK07 JPN Johor)
+# Penjana Minit Mesyuarat – SK Sungai Tiram
 
-A web application for teachers to auto-generate standard **Minit Mesyuarat (PK07)** and **Minit Curai** documents directly from crude meeting notes, photos, or One Page Reports (OPR). Integrates with ChatGPT and Gemini APIs.
+Alat web percuma (tanpa pemasangan) untuk menjana **Minit Mesyuarat / Minit Mesyuarat Curai** dalam format PK07.
 
----
+## Cara guna (guru)
+1. Buka pautan GitHub Pages sekolah.
+2. Isi borang di sebelah kiri (tarikh, masa, tempat, pengerusi, agenda).
+3. Hari, bulan dan masa (pagi/tengahari/petang) dikira automatik.
+4. Tekan **Cetak / Simpan PDF** → pilih saiz **A4**, margin **Default/None**, matikan "Headers and footers".
 
-## 🚀 Treasure Hunt Quick Start Guide
+## Format agenda
+- Satu baris = satu perkara (auto 1.1, 1.2 …)
+- `## Tajuk` = sub-tajuk (4.1) → perkara di bawahnya 4.1.1, 4.1.2 …
+- `- teks` = senarai titik
+- Penanda: *Makluman* atau *Tindakan* (+ pihak bertindak)
 
-### Step 1: Clone Repository
-```bash
-git clone https://github.com/username/sk-minit-generator.git
-cd sk-minit-generator
-```
+## Pasang di GitHub Pages
+1. Cipta repo baharu → muat naik `index.html`, `logo.jpg`, `README.md`.
+2. Settings → Pages → Source: `main` / root → Save.
+3. Kongsi pautan `https://<nama-akaun>.github.io/<nama-repo>/` kepada semua guru.
 
-### Step 2: Open Application
-No complex server setup required! Simply open `index.html` in Chrome, Edge, or Safari.
+Draf disimpan dalam pelayar guru sendiri (tiada data dihantar ke mana-mana pelayan).
 
----
-
-## 🔑 AI Engine Integration
-
-1. **ChatGPT**:
-   - Get API key from [OpenAI Platform](https://platform.openai.com/).
-   - Select `ChatGPT` from the dropdown and input your key.
-2. **Google Gemini**:
-   - Get free API key from [Google AI Studio](https://aistudio.google.com/).
-   - Select `Gemini` from the dropdown and input your key.
-
----
-
-## 🖨️ Printing Standard Documents
-
-1. Fill or upload input data (Image / PDF / Notes).
-2. Click **🔍 Nyahkod & Jana Dokumen**.
-3. Click **🖨️ Cetak / Simpan PDF**.
-4. Set print destination to **Save as PDF** or print directly on A4 paper.
+## Ciri OPR
+- **Cara A:** pilih gambar OPR → *Baca OPR* (OCR dalam pelayar, perlu internet) → semak teks → *Jana agenda*. Gambar OPR dilampirkan automatik.
+- **Cara B:** *Salin arahan AI* → muat naik OPR ke Claude + tampal arahan → tampal jawapan → *Masukkan ke agenda*.
+Sentiasa semak hasil sebelum cetak.
