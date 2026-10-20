@@ -1,0 +1,12 @@
+Ekstrak maklumat Minit Curai dalam format JSON SAHAJA:
+{
+  "tajuk": "",
+  "tarikh": "",
+  "masa": "",
+  "tempat": "",
+  "penganjur": "",
+  "pengerusi": "",
+  "pegawai_terlibat": "",
+  "kandungan": [],
+  "tindakan_susulan": ""
+}

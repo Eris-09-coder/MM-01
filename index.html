@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jana Minit Mesyuarat & Minit Curai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      .print-area { width: 100%; margin: 0; padding: 0; }
+      body { background: white; font-family: "Times New Roman", Times, serif; font-size: 12pt; }
+      @page { size: A4; margin: 20mm; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800 p-4">
+
+  <div class="max-w-5xl mx-auto no-print space-y-6 mb-8">
+    <!-- Header / Theme Banner -->
+    <div class="bg-amber-600 text-white p-6 rounded-lg shadow-md flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold">🏴‍☠️ Treasure Hunt Minit Generator</h1>
+        <p class="text-amber-100 text-sm">Nyahkodkan Nota & Gambar kepada Dokumen Rasmi PK07 / Minit Curai</p>
+      </div>
+      <div class="text-4xl">🗺️</div>
+    </div>
+
+    <!-- Input Control Panel -->
+    <div class="bg-white p-6 rounded-lg shadow-md space-y-4">
+      <h2 class="text-lg font-semibold border-b pb-2">1. Tetapan Modul & AI</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Jenis Dokumen</label>
+          <select id="docType" class="w-full border rounded p-2">
+            <option value="mesyuarat">Minit Mesyuarat (PK07)</option>
+            <option value="curai">Minit Curai</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Pilih Enjin AI</label>
+          <select id="aiEngine" class="w-full border rounded p-2">
+            <option value="chatgpt">ChatGPT (OpenAI API)</option>
+            <option value="gemini">Google Gemini API</option>
+            <option value="manual">Manual / Salin Prompt</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Kunci API (API Key)</label>
+          <input type="password" id="apiKey" placeholder="Masukkan API Key anda" class="w-full border rounded p-2" />
+        </div>
+      </div>
+
+      <h2 class="text-lg font-semibold border-b pt-4 pb-2">2. Ekstrak Maklumat (Gambar / OPR / Nota)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Muat Naik Gambar / OPR / Nota (OCR)</label>
+          <input type="file" id="fileInput" accept="image/*,application/pdf" class="w-full border p-2 rounded" />
+          <p id="ocrStatus" class="text-xs text-amber-700 mt-1"></p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Atau Tampal Teks / Nota Kasar</label>
+          <textarea id="rawInput" rows="4" class="w-full border rounded p-2 text-sm" placeholder="Tampal sebarang nota mesyuarat, maklumat OPR, tarikh, masa, dan keputusan di sini..."></textarea>
+        </div>
+      </div>
+
+      <div class="flex gap-4 pt-2">
+        <button onclick="generateDocument()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded font-semibold transition">
+          🔍 Nyahkod & Jana Dokumen
+        </button>
+        <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded font-semibold transition">
+          🖨️ Cetak / Simpan PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Document Rendering Container -->
+  <div id="outputContainer" class="print-area max-w-4xl mx-auto bg-white p-10 shadow-lg border">
+    <!-- Rendered Document Target -->
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

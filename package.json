@@ -1,0 +1,12 @@
+{
+  "name": "sk-minit-generator",
+  "version": "1.0.0",
+  "description": "Auto-generator Minit Mesyuarat PK07 dan Minit Curai untuk Guru",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "dependencies": {
+    "tesseract.js": "^5.0.0"
+  }
+}
